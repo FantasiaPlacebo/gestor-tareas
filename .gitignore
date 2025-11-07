@@ -1,0 +1,5 @@
+#Librerias
+node_modules/
+
+#Conexion Base De Datos
+.env 
