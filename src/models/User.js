@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const usuarioSchema = new mongoose.Schema(
   {
-    nombre_completo: {
+    nombreCompleto: {
       type: String,
       required: true,
     },
@@ -11,20 +11,19 @@ const usuarioSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    nombre_de_usuario: {
+    nombreUsuario: {
       type: String,
       required: true,
       unique: true,
     },
-    contraseña: {
+    password: {
       type: String,
       required: true,
     },
     role: {
       type: String,
-      // 'enum' es una lista de los únicos valores permitidos
       enum: ["admin", "miembro"],
-      default: "miembro", // Rol por defecto cuando un usuario se registra
+      default: "miembro",
     },
   },
   {
