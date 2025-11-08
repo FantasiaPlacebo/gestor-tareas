@@ -2,11 +2,15 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
+const projectRoutes = require("./routes/projectRoutes");
+const taskRoutes = require("./routes/taskRoutes");
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
 app.use("/api/usuarios", userRoutes);
+app.use("/api/proyectos", projectRoutes);
+app.use("/api/tareas", taskRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)
