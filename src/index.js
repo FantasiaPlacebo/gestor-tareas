@@ -6,8 +6,11 @@ const projectRoutes = require("./routes/projectRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 const app = express();
 const PORT = 3000;
+const cors = require("cors");
 
 app.use(express.json());
+app.use(cors());
+
 app.use("/api/usuarios", userRoutes);
 app.use("/api/proyectos", projectRoutes);
 app.use("/api/tareas", taskRoutes);

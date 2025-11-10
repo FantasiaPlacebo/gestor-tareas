@@ -30,11 +30,11 @@ exports.loginUsuario = async (req, res) => {
     const { nombreUsuario, password } = req.body;
     const usuario = await User.findOne({ nombreUsuario });
     if (!usuario) {
-      return res.status(404).json({ mensaje: "Usuario no encontrado" });
+      return res.status(401).json({ mensaje: "Credenciales invalidas" });
     }
     const passwordCorrecto = await bcrypt.compare(password, usuario.password);
     if (!passwordCorrecto) {
-      return res.status(401).json({ mensaje: "Contraseña incorrecta" });
+      return res.status(401).json({ mensaje: "Credenciales invalidas" });
     }
     const payload = {
       usuario: {
